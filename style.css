@@ -228,7 +228,7 @@ section h2::after {
     margin: 0 auto;
 }
 
-.skill-card {
+.Portofolio-card {
     background-color: var(--bg-card);
     padding: 2rem;
     border-radius: 15px;
@@ -238,23 +238,23 @@ section h2::after {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
-.skill-card:hover {
+.Portofolio-card:hover {
     transform: translateY(-10px);
     border-color: var(--light-blue);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
-.skill-icon {
+.Portofolio-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.skill-card h3 {
+.Portofolio-card h3 {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
-.skill-card p {
+.Portofolio-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
@@ -567,7 +567,7 @@ footer p {
         font-size: 1rem;
     }
 
-    .skill-card,
+    .Portofolio-card,
     .Testimoni-card {
         padding: 1.5rem;
     }
