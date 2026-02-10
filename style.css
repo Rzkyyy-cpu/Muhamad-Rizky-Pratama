@@ -1,0 +1,578 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Theme Variables */
+    --cream: #EDEDCE;
+    --light-blue: #629FAD;
+    --teal: #296374;
+    --navy: #0C2C55;
+    
+    --bg-primary: #EDEDCE;
+    --bg-secondary: rgba(98, 159, 173, 0.1);
+    --bg-card: #ffffff;
+    --text-primary: #0C2C55;
+    --text-secondary: #296374;
+    --text-light: #629FAD;
+    --nav-bg: #0C2C55;
+    --nav-text: #EDEDCE;
+    --shadow: rgba(12, 44, 85, 0.1);
+    --shadow-hover: rgba(12, 44, 85, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--nav-bg);
+    padding: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: background-color 0.3s ease;
+}
+
+nav .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+nav .logo {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--nav-text);
+    z-index: 10;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--nav-text);
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--light-blue);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--light-blue);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--nav-text);
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Beranda Section */
+.Beranda {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+    color: var(--cream);
+    padding: 8rem 2rem;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Beranda-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.Beranda-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: var(--light-blue);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--light-blue);
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+/* Section */
+section {
+    padding: 5rem 2rem;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--light-blue));
+    border-radius: 2px;
+}
+
+/* Tentang_Saya Section */
+.Tentang_Saya {
+    background-color: var(--bg-primary);
+}
+
+.Tentang_Saya-content {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.Tentang_Saya-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* Skills Section */
+.skills {
+    background-color: var(--bg-secondary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--light-blue);
+    box-shadow: 0 15px 30px var(--shadow-hover);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Projects Section */
+.projects {
+    background-color: var(--bg-primary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow-hover);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--light-blue), var(--teal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.project-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    color: var(--light-blue);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: var(--teal);
+}
+
+/* Kontak Section */
+.Kontak {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    color: var(--cream);
+}
+
+.Kontak h2 {
+    color: var(--cream);
+    padding-bottom: 0.5rem;
+}
+
+.Kontak h2::after {
+    background: var(--light-blue);
+}
+
+.Kontak-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Kontak-content > p {
+    color: var(--light-blue);
+    margin-bottom: 0.5rem;
+    height: fit-content;
+}
+
+.Kontak-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.Kontak-item {
+    background-color: rgba(237, 237, 206, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.Kontak-item:hover {
+    background-color: rgba(237, 237, 206, 0.2);
+    transform: translatey(10px);
+}
+
+.Kontak-icon {
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--nav-bg);
+    color: var(--cream);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+footer p {
+    color: var(--light-blue);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--light-blue);
+    color: var(--navy);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px var(--shadow);
+    z-index: 99;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--teal);
+    color: var(--cream);
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-down {
+    animation: fadeInDown 1s ease-out;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--nav-bg);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Beranda Section */
+    .Beranda {
+        padding: 5rem 1.5rem;
+    }
+
+    .Beranda-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .Beranda-content p {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 3rem 1rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Kontak Items */
+    .Kontak-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .Kontak-item:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .container {
+        padding: 0 1rem;
+    }
+
+    .Beranda-content h1 {
+        font-size: 2rem;
+    }
+
+    .Beranda-content p {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .Tentang_Saya-content {
+        font-size: 1rem;
+    }
+
+    .skill-card,
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .Kontak-content {
+        padding: 0 1rem;
+    }
+}
