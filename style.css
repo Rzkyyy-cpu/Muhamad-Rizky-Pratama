@@ -215,12 +215,12 @@ section h2::after {
     margin-bottom: 1.5rem;
 }
 
-/* Skills Section */
-.skills {
+/* Portofolio Section */
+.Portofolio {
     background-color: var(--bg-secondary);
 }
 
-.skills-grid {
+.Portofolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -514,8 +514,8 @@ footer p {
         margin-bottom: 2rem;
     }
 
-    /* Skills Grid */
-    .skills-grid {
+    /* Portofolio Grid */
+    .Portofolio-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
