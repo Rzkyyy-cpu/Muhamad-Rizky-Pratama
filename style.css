@@ -259,18 +259,18 @@ section h2::after {
     font-size: 0.95rem;
 }
 
-/* Projects Section */
-.projects {
+/* Testimonis Section */
+.Testimonis {
     background-color: var(--bg-primary);
 }
 
-.projects-grid {
+.Testimonis-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
 }
 
-.project-card {
+.Testimoni-card {
     background: var(--bg-card);
     border-radius: 15px;
     overflow: hidden;
@@ -278,12 +278,12 @@ section h2::after {
     transition: all 0.3s;
 }
 
-.project-card:hover {
+.Testimoni-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
-.project-image {
+.Testimoni-image {
     width: 100%;
     height: 200px;
     background: linear-gradient(135deg, var(--light-blue), var(--teal));
@@ -294,21 +294,21 @@ section h2::after {
     color: white;
 }
 
-.project-content {
+.Testimoni-content {
     padding: 1.5rem;
 }
 
-.project-content h3 {
+.Testimoni-content h3 {
     color: var(--text-primary);
     margin-bottom: 0.8rem;
 }
 
-.project-content p {
+.Testimoni-content p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
-.project-link {
+.Testimoni-link {
     color: var(--light-blue);
     text-decoration: none;
     font-weight: bold;
@@ -318,7 +318,7 @@ section h2::after {
     transition: color 0.3s;
 }
 
-.project-link:hover {
+.Testimoni-link:hover {
     color: var(--teal);
 }
 
@@ -520,8 +520,8 @@ footer p {
         gap: 1.5rem;
     }
 
-    /* Projects Grid */
-    .projects-grid {
+    /* Testimonis Grid */
+    .Testimonis-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
@@ -568,7 +568,7 @@ footer p {
     }
 
     .skill-card,
-    .project-card {
+    .Testimoni-card {
         padding: 1.5rem;
     }
 
