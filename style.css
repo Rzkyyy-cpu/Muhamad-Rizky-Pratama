@@ -43,7 +43,7 @@ nav {
 }
 
 nav .container {
-    max-width: 1400px;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -54,7 +54,7 @@ nav .container {
 
 nav .logo {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--nav-text);
     z-index: 10;
@@ -107,7 +107,7 @@ nav .logo {
 
 .mobile-menu-toggle span {
     width: 25px;
-    height: 3px;
+    height: 2px;
     background-color: var(--nav-text);
     transition: all 0.3s;
     border-radius: 3px;
@@ -129,23 +129,77 @@ nav .logo {
 .Beranda {
     background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
     color: var(--cream);
-    padding: 8rem 2rem;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 2.7rem 2rem; /* Keep padding */
 }
 
 .Beranda-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
 }
 
 .Beranda-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     color: var(--light-blue);
+    text-align: left;
+}
+.Beranda-content a {
+    font-size: 1rem;
+    margin-top: 6rem;
+    margin-left: 2rem;
+    color: var(--navy);
+    text-align: left;
+}
+
+.Beranda-container-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px; /* Match container width */
+    margin: 0 auto;
+    gap: 2rem; /* Spacing between items */
+    min-height: calc(100vh - 10rem); /* Adjust based on padding and nav height */
+}
+
+.Beranda-layout-item {
+    flex: 1;
+    min-width: 300px; /* Minimum width for each item before wrapping */
+    padding: 1rem;
+}
+
+.Beranda-layout-item.Beranda-image {
+    text-align: center;
+
+}
+
+.Beranda-layout-item.Beranda-extra-content {
+    text-align: right;
+}
+
+.Beranda-layout-item.Beranda-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Make the image round */
+    background-blend-mode: tomato;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover; /* Ensure the image covers the area, cropping if necessary */
+    width: 300px; /* Fixed width for the circular image */
+    height: 300px; /* Fixed height for the circular image */
+    filter: grayscale(100%); /* Apply grayscale filter */
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+.Beranda-layout-item.Beranda-image img:hover {
+    filter: grayscale(0%); /* Remove grayscale on hover */
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+    border-radius: 50%; /* Make the image round */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.Beranda-layout-item .cta-button {
+    text-align: left; /* Ensure the button is left-aligned */
+    display: inline-block; /* Make sure it doesn't take full width */
 }
 
 .cta-button {
@@ -489,6 +543,32 @@ footer p {
     /* Beranda Section */
     .Beranda {
         padding: 5rem 1.5rem;
+    }
+
+    .Beranda-container-new {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center; /* Center content when stacked */
+        min-height: unset; /* Remove min-height */
+    }
+
+    .Beranda-layout-item {
+        min-width: unset; /* Remove min-width to allow full width */
+        width: 100%; /* Take full width */
+    }
+
+    .Beranda-layout-item.Beranda-image {
+        order: -1; /* Move image to the top */
+    }
+
+    .Beranda-layout-item.Beranda-content,
+    .Beranda-layout-item.Beranda-extra-content {
+        text-align: center; /* Center text content */
+    }
+
+    .Beranda-content h1,
+    .Beranda-content p,
+    .Beranda-layout-item .cta-button {
+        text-align: center; /* Ensure internal text and button are centered */
     }
 
     .Beranda-content h1 {
