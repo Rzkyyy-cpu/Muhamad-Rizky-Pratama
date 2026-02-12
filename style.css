@@ -147,7 +147,6 @@ nav .logo {
 .Beranda-content a {
     font-size: 1rem;
     margin-top: 6rem;
-    margin-left: 2rem;
     color: var(--navy);
     text-align: left;
 }
@@ -428,9 +427,6 @@ section h2::after {
     transform: translatey(10px);
 }
 
-.Kontak-icon {
-    font-size: 1rem;
-}
 
 /* Footer */
 footer {
@@ -442,6 +438,7 @@ footer {
 
 footer p {
     color: var(--light-blue);
+    font-size: 0.9rem;
 }
 
 /* Scroll to Top Button */

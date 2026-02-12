@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Muhamad Rizky Pratama</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo"><a href="#Beranda" class="nav-link">Muhamad Rizky Pratama</a></div>
+            <div class="logo"><a href="#Beranda" class="nav-link">Muhamad R. Pratama</a></div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -31,10 +32,10 @@
         <div class="Beranda-container-new">
             <div class="Beranda-layout-item">
                 <div class="Beranda-content">
-                    <h3>Halo, Saya </h3>
+                    <h3 class="fade-in-down">Halo, Saya </h3>
                     <h1>Muhamad Rizky Pratama</h1>
-                    <p>Web Developer & Designer </p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus consectetur animi sapiente expedita cumque maxime voluptates porro? Eveniet voluptas esse, dolores laborum enim at maxime alias quas suscipit eos.</p>
+                    <p class="fade-in-up">Web Developer & Designer </p>
+                    <p class="fade-in-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus consectetur animi sapiente expedita cumque maxime voluptates porro? Eveniet voluptas esse, dolores laborum enim at maxime alias quas suscipit eos.</p>
                     <a href="#Kontak" class="cta-button">Get In Touch</a>
                 </div>
             </div>
@@ -133,24 +134,22 @@
                 <p>Saya terbuka untuk kolaborasi dan proyek baru. Mari berdiskusi bagaimana kita bisa bekerja sama!</p>
                 <div class="Kontak-info">
                     <div class="Kontak-item">
-                        <div class="Kontak-icon">📧</div>
-                        <div>
-                            <strong>Email</strong><br>
-                            muhamadrizkyp95@gmail.com
-                        </div>
+                        <a href="mailto:muhamadrizkyp95@gmail.com" class="email-icon">
+                        <img src="asset/email.png" alt="">
+                        </a>
+                        <strong>muhamadrizkyp95@gmail.com</strong>
                     </div>
                     <div class="Kontak-item">
-                        <div class="Kontak-icon">📱</div>
-                        <div>
-                            <strong>WhatsApp</strong><br>
-                        </div>
+                        <a href="https://wa.me/6281460912579" class="whatsapp-icon">
+                        <img src="asset/whatsapp.png" alt="">
+                        </a>
+                        <strong class="whatsapp">+6281460912579</strong>
                     </div>
                     <div class="Kontak-item">
-                        <div class="Kontak-icon">🌍</div>
-                        <div>
-                            <strong>Location</strong><br>
-                            Tasikmalaya, West Java, Indonesia
-                        </div>
+                        <a href="https://www.linkedin.com/in/muhamad-rizky-pratama-58b774323/" class="linkedin-icon">
+                        <img src="asset/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <strong>Muhamad Rizky Pratama</strong>
                     </div>
                 </div>
             </div>
@@ -159,7 +158,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Muhamad Rizky Pratama. All rights reserved.</p>
+        <p class="footer-text">&copy; 2026 Muhamad Rizky Pratama. All rights reserved.</p>
     </footer>
 
     <!-- Scroll to Top Button -->
