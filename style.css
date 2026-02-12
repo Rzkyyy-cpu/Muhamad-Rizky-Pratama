@@ -268,12 +268,12 @@ section h2::after {
     margin-bottom: 1.5rem;
 }
 
-/* Portofolio Section */
-.Portofolio {
+/* Skills Section */
+.Skills {
     background-color: var(--bg-secondary);
 }
 
-.Portofolio-grid {
+.Skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -281,7 +281,7 @@ section h2::after {
     margin: 0 auto;
 }
 
-.Portofolio-card {
+.Skills-card {
     background-color: var(--bg-card);
     padding: 2rem;
     border-radius: 15px;
@@ -291,39 +291,39 @@ section h2::after {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
-.Portofolio-card:hover {
+.Skills-card:hover {
     transform: translateY(-10px);
     border-color: var(--light-blue);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
-.Portofolio-icon {
+.Skills-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.Portofolio-card h3 {
+.Skills-card h3 {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
-.Portofolio-card p {
+.Skills-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
-/* Testimonis Section */
-.Testimonis {
+/* Portfolios Section */
+.Portfolio {
     background-color: var(--bg-primary);
 }
 
-.Testimonis-grid {
+.Portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
 }
 
-.Testimoni-card {
+.Portfolio-card {
     background: var(--bg-card);
     border-radius: 15px;
     overflow: hidden;
@@ -331,12 +331,12 @@ section h2::after {
     transition: all 0.3s;
 }
 
-.Testimoni-card:hover {
+.Portfolio-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
-.Testimoni-image {
+.Portfolio-image {
     width: 100%;
     height: 200px;
     background: linear-gradient(135deg, var(--light-blue), var(--teal));
@@ -347,21 +347,21 @@ section h2::after {
     color: white;
 }
 
-.Testimoni-content {
+.Portfolio-content {
     padding: 1.5rem;
 }
 
-.Testimoni-content h3 {
+.Portfolio-content h3 {
     color: var(--text-primary);
     margin-bottom: 0.8rem;
 }
 
-.Testimoni-content p {
+.Portfolio-content p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
-.Testimoni-link {
+.Portfolio-link {
     color: var(--light-blue);
     text-decoration: none;
     font-weight: bold;
@@ -371,7 +371,7 @@ section h2::after {
     transition: color 0.3s;
 }
 
-.Testimoni-link:hover {
+.Portfolio-link:hover {
     color: var(--teal);
 }
 
@@ -411,6 +411,13 @@ section h2::after {
     justify-content: center;
 }
 
+a.whatsapp-icon, a.email-icon, a.linkedin-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .Kontak-item {
     background-color: rgba(237, 237, 206, 0.1);
     padding: 1rem;
@@ -419,7 +426,7 @@ section h2::after {
     align-items: center;
     gap: 1rem;
     transition: all 0.3s;
-    text-align: left;
+    text-align: center;
 }
 
 .Kontak-item:hover {
@@ -438,7 +445,7 @@ footer {
 
 footer p {
     color: var(--light-blue);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* Scroll to Top Button */
@@ -591,14 +598,14 @@ footer p {
         margin-bottom: 2rem;
     }
 
-    /* Portofolio Grid */
-    .Portofolio-grid {
+    /* Skills Grid */
+    .Skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    /* Testimonis Grid */
-    .Testimonis-grid {
+    /* Portfolios Grid */
+    .Portfolio-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
@@ -644,8 +651,8 @@ footer p {
         font-size: 1rem;
     }
 
-    .Portofolio-card,
-    .Testimoni-card {
+    .Skills-card,
+    .Portfolio-card {
         padding: 1.5rem;
     }
 
