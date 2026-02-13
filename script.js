@@ -1,255 +1,172 @@
 // Mobile Menu Togglee
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
+// Mendapatkan elemen-elemen yang diperlukan dari DOM
+const mobileMenuToggle = document.getElementById('mobileMenuToggle'); // Tombol untuk membuka/menutup menu mobile
+const navMenu = document.getElementById('navMenu'); // Elemen menu navigasi
+const navLinks = document.querySelectorAll('.nav-link'); // Semua link di dalam menu navigasi
 
-// Toggle mobile menu
+// Event listener untuk tombol menu mobile
 mobileMenuToggle.addEventListener('click', () => {
-    mobileMenuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    // Mengubah status aktif pada tombol dan menu
+    mobileMenuToggle.classList.toggle('active'); // Menambah/menghapus kelas 'active' pada tombol
+    navMenu.classList.toggle('active'); // Menambah/menghapus kelas 'active' pada menu
 });
 
-// Close mobile menu when clicking on a nav link
+// Event listener untuk setiap link di menu navigasi
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+        // Menutup menu mobile saat salah satu link diklik
+        mobileMenuToggle.classList.remove('active'); // Menghapus kelas 'active' dari tombol
+        navMenu.classList.remove('active'); // Menghapus kelas 'active' dari menu
     });
 });
 
-// Close mobile menu when clicking outside
+// Event listener untuk menutup menu saat mengklik di luar area menu
 document.addEventListener('click', (e) => {
+    // Memeriksa apakah klik dilakukan di luar area menu dan tombol
     if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+        // Jika ya, maka tutup menu
+        mobileMenuToggle.classList.remove('active'); // Menghapus kelas 'active' dari tombol
+        navMenu.classList.remove('active'); // Menghapus kelas 'active' dari menu
     }
 });
 
 // Scroll to Top Button
+// Mendapatkan elemen tombol "scroll to top"
 const scrollToTopBtn = document.getElementById('scrollToTop');
 
-// Show/hide scroll to top button
+// Event listener untuk menampilkan/menyembunyikan tombol berdasarkan posisi scroll
 window.addEventListener('scroll', () => {
+    // Jika posisi scroll lebih dari 300px
     if (window.pageYOffset > 300) {
+        // Tampilkan tombol
         scrollToTopBtn.classList.add('visible');
     } else {
+        // Sembunyikan tombol
         scrollToTopBtn.classList.remove('visible');
     }
 });
 
-// Scroll to top when button is clicked
+// Event listener untuk tombol "scroll to top"
 scrollToTopBtn.addEventListener('click', () => {
+    // Menggulir halaman ke atas dengan halus
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+        top: 0, // Posisi tujuan (paling atas)
+        behavior: 'smooth' // Animasi gulir yang halus
     });
 });
 
 // Smooth scrolling for anchor links
+// Mendapatkan semua link yang mengarah ke bagian dalam halaman
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Event listener untuk setiap link
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Mencegah perilaku default dari link
+
+        // Mendapatkan elemen tujuan dari link
         const target = document.querySelector(this.getAttribute('href'));
-        
+
+        // Jika elemen tujuan ada
         if (target) {
-            const offsetTop = target.offsetTop - 70; // Adjust for fixed nav height
+            // Menghitung posisi tujuan dengan penyesuaian untuk tinggi navigasi
+            const offsetTop = target.offsetTop - 70;
+            // Menggulir halaman ke posisi tujuan dengan halus
             window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+                top: offsetTop, // Posisi tujuan
+                behavior: 'smooth' // Animasi gulir yang halus
             });
         }
     });
 });
 
 // Intersection Observer for fade-in animations on scroll
+// Opsi untuk Intersection Observer
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.1, // Seberapa banyak elemen harus terlihat sebelum callback dipanggil
+    rootMargin: '0px 0px -100px 0px' // Margin untuk area observasi
 };
 
+// Membuat instance Intersection Observer
 const observer = new IntersectionObserver((entries) => {
+    // Untuk setiap entri yang diobservasi
     entries.forEach(entry => {
+        // Jika elemen masuk ke dalam viewport
         if (entry.isIntersecting) {
+            // Tambahkan kelas 'animate' untuk memicu animasi
             entry.target.classList.add('animate');
         }
     });
 }, observerOptions);
 
-// Observe skill cards and project cards
+// Event listener yang dijalankan setelah semua konten DOM dimuat
 document.addEventListener('DOMContentLoaded', () => {
-    const skillCards = document.querySelectorAll('.skill-card');
-    const projectCards = document.querySelectorAll('.project-card');
-    
+    // Mendapatkan semua elemen kartu keterampilan dan portofolio
+    const skillCards = document.querySelectorAll('.Skills-card');
+    const projectCards = document.querySelectorAll('.Portfolio-card');
+
+    // Mengobservasi setiap kartu keterampilan
     skillCards.forEach(card => {
         observer.observe(card);
     });
-    
+
+    // Mengobservasi setiap kartu portofolio
     projectCards.forEach(card => {
         observer.observe(card);
     });
 });
 
 // Add active state to nav links based on scroll position
+// Event listener untuk menandai link navigasi yang aktif berdasarkan posisi scroll
 window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
+    let current = ''; // Variabel untuk menyimpan ID bagian yang sedang aktif
+    const sections = document.querySelectorAll('section'); // Mendapatkan semua elemen section
+
+    // Untuk setiap bagian
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
+        const sectionTop = section.offsetTop; // Posisi atas bagian
+        const sectionHeight = section.clientHeight; // Tinggi bagian
+
+        // Jika posisi scroll berada di dalam bagian ini
         if (window.pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
+            current = section.getAttribute('id'); // Dapatkan ID bagian
         }
     });
-    
+
+    // Untuk setiap link navigasi
     navLinks.forEach(link => {
+        // Hapus kelas 'active' dari semua link
         link.classList.remove('active');
+        // Jika link mengarah ke bagian yang sedang aktif
         if (link.getAttribute('href').slice(1) === current) {
+            // Tambahkan kelas 'active'
             link.classList.add('active');
         }
     });
 });
 
-// Parallax effect for hero section (optional)
-// window.addEventListener('scroll', () => {
-//     const hero = document.querySelector('.hero');
-//     const scrolled = window.pageYOffset;
-//     const rate = scrolled * 0.5;
-    
-//     if (hero) {
-//         hero.style.transform = `translate3d(0, ${rate}px, 0)`;
-//     }
-// });
-
-// Form validation (if you add a contact form later)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Typing effect for hero text (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing effect on page load (optional)
-// Uncomment below to enable typing effect
-/*
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero h1');
-    const originalText = heroTitle.textContent;
-    typeWriter(heroTitle, originalText, 80);
-});
-*/
-
-// Performance: Debounce function for scroll events
-function debounce(func, wait = 20, immediate = true) {
-    let timeout;
-    return function() {
-        const context = this;
-        const args = arguments;
-        const later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-// Handle external links (open in new tab)
-document.querySelectorAll('a[href^="http"]').forEach(link => {
-    if (!link.href.includes(window.location.hostname)) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-    }
-});
-
-// Console message for developers
-console.log('%c👋 Hi Developer!', 'font-size: 20px; color: #629FAD; font-weight: bold;');
-console.log('%cIf you\'re interested in how this website was built, feel free to reach out!', 'font-size: 14px; color: #296374;');
-
-// Prevent console errors in production
-if (typeof console === 'undefined') {
-    window.console = {
-        log: function() {},
-        error: function() {},
-        warn: function() {}
-    };
-}
-
 // Add keyboard navigation support
+// Event listener untuk navigasi keyboard
 document.addEventListener('keydown', (e) => {
-    // Press 'T' to toggle theme
-    if (e.key === 't' || e.key === 'T') {
-        if (!e.target.matches('input, textarea')) {
-            themeToggle.click();
-        }
-    }
-    
-    // Press 'Escape' to close mobile menu
+    // Jika tombol 'Escape' ditekan
     if (e.key === 'Escape') {
+        // Tutup menu mobile
         mobileMenuToggle.classList.remove('active');
         navMenu.classList.remove('active');
     }
 });
 
-// Add touch support for hover effects on mobile
-if ('ontouchstart' in window) {
-    document.querySelectorAll('.skill-card, .project-card, .contact-item').forEach(element => {
-        element.addEventListener('touchstart', function() {
-            this.classList.add('touch-active');
-        });
-        
-        element.addEventListener('touchend', function() {
+// Wait for the DOM to load
+    document.addEventListener("DOMContentLoaded", function () {
+        const splash = document.getElementById("splash");
+        const mainContent = document.getElementById("main-content");
+
+        // Show splash for 2 seconds, then fade out
+        setTimeout(() => {
+            splash.classList.add("hidden");
+
+            // Show main content after fade-out
             setTimeout(() => {
-                this.classList.remove('touch-active');
-            }, 300);
-        });
+                splash.style.display = "none";
+                mainContent.style.display = "block";
+            }, 100); // match CSS transition duration
+        }, 100); // show splash for 600ms
     });
-}
-
-// Page visibility API - pause animations when tab is not active
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Pause animations
-        document.body.style.animationPlayState = 'paused';
-    } else {
-        // Resume animations
-        document.body.style.animationPlayState = 'running';
-    }
-});
-
-// Service Worker Registration (for PWA - optional)
-/*
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered:', registration);
-            })
-            .catch(error => {
-                console.log('SW registration failed:', error);
-            });
-    });
-}
-*/

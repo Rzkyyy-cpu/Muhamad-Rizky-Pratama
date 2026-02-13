@@ -1,22 +1,29 @@
+<!-- Tipe dokumen dan bahasa halaman -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <!-- Pengaturan karakter, viewport, judul, dan stylesheet -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Muhamad Rizky Pratama</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    <!-- Navigation -->
+    <div id="splash"></div>
+    <div id="main-content">
+    <!-- Bagian navigasi -->
+<header>
     <nav>
         <div class="container">
+            <!-- Logo dan link ke beranda -->
             <div class="logo"><a href="#Beranda" class="nav-link">Muhamad R. Pratama</a></div>
+            <!-- Tombol untuk menu mobile -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Daftar menu navigasi -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#Beranda" class="nav-link">Home</a></li>
                 <li><a href="#Tentang_Saya" class="nav-link">About Me</a></li>
@@ -26,112 +33,134 @@
             </ul>
         </div>
     </nav>
+</header>
 
-    <!-- Beranda Section -->
+    <!-- Bagian Beranda -->
     <section class="Beranda" id="Beranda">
         <div class="Beranda-container-new">
+            <!-- Konten teks Beranda -->
             <div class="Beranda-layout-item">
                 <div class="Beranda-content">
-                    <h3 class="fade-in-down">Halo, Saya </h3>
-                    <h1>Muhamad Rizky Pratama</h1>
-                    <p class="fade-in-up">Web Developer & Designer </p>
-                    <p class="fade-in-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus consectetur animi sapiente expedita cumque maxime voluptates porro? Eveniet voluptas esse, dolores laborum enim at maxime alias quas suscipit eos.</p>
-                    <a href="#Kontak" class="cta-button">Get In Touch</a>
+                    <h1 class="fade-in-left mynameis">My Name Is </h1>
+                    <h1 class="fade-in-left">Muhamad Rizky Pratama</h1>
+                    <a href="#Kontak" class="cta-button fade-in-left">Im a full stack developer</a>
                 </div>
             </div>
+            <!-- Gambar di bagian Beranda -->
             <div class="Beranda-layout-item Beranda-image">
-                <img src="asset/foto1.png" alt="Profile Picture">
+                <img src="asset/foto2.png" alt="profile picture" class="foto2 fade-in-right">
+                <img src="asset/foto3.jpeg" alt="Profile Picture" class="foto3 fade-in-right">
             </div>
         </div>
     </section>
-
-    <!-- Tentang_Saya Section -->
+    
+    <!-- Bagian Tentang Saya -->
     <section class="Tentang_Saya" id="Tentang_Saya">
         <div class="container">
             <h2>About Me</h2>
-            <div class="Tentang_Saya-content">
+            <div class="Tentang_Saya-content Beranda-container-new">
+                <!-- gambar di bagian about me -->
+                <div class="Beranda-layout-item Beranda-image">
+                <img src="asset/foto1.png" alt="Profile Picture" class="foto1 fade-in-right">              
+                </div>
+                <!-- Konten teks about me -->
+                <div class="Beranda-layout-item">
                 <p>
                     Saya adalah seorang web developer yang passionate dalam menciptakan 
                     pengalaman digital yang menarik dan fungsional. Dengan pengalaman 
                     dalam berbagai teknologi web modern, saya siap membantu mewujudkan 
                     ide Anda menjadi kenyataan.
-                </p>
-                <p>
+                <br><br>
                     Saya fokus pada pembuatan website yang tidak hanya cantik secara visual, 
                     tetapi juga user-friendly dan responsif di semua perangkat.
                 </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Bagian Skills -->
     <section class="Skills" id="Skills">
         <div class="container">
             <h2>Skills</h2>
             <div class="Skills-grid">
+                <!-- Kartu skill: Web Development -->
                 <div class="Skills-card">
-                    <div class="Skills-icon">💻</div>
-                    <h3>Web Development</h3>
+                    <div class="Skills-icon">
+                        <img src="asset/frontend.png" alt="">
+                    </div>
+                    <h3>Front End</h3>
                     <p>HTML, CSS, JavaScript, React, Node.js</p>
                 </div>
+                <!-- Kartu skill: UI/UX Design -->
                 <div class="Skills-card">
-                    <div class="Skills-icon">🎨</div>
-                    <h3>UI/UX Design</h3>
-                    <p>Figma, Adobe XD, Responsive Design</p>
+                    <div class="Skills-icon">
+                    <img src="asset/backend.png" alt="">
+                    </div>
+                    <h3>Back End</h3>
+                    <p>Node.js, Express, REST API, Authentication</p>
                 </div>
+                <!-- Kartu skill: Mobile First -->
                 <div class="Skills-card">
-                    <div class="Skills-icon">📱</div>
-                    <h3>Mobile First</h3>
-                    <p>Progressive Web Apps, Mobile Optimization</p>
-                </div>
-                <div class="Skills-card">
-                    <div class="Skills-icon">⚡</div>
-                    <h3>Performance</h3>
-                    <p>SEO Optimization, Fast Loading, Best Practices</p>
+                    <div class="Skills-icon">
+                    <img src="asset/database.png" alt="">
+                    </div>
+                    <h3>Data Base</h3>
+                    <p>MySQL, PostgreSQL, MongoDB</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Bagian Portfolio -->
     <section class="Portfolio" id="Portfolio">
         <div class="container">
             <h2>Portfolio</h2>
             <div class="Portfolio-grid">
+                <!-- Kartu portfolio: E-Commerce Website -->
                 <div class="Portfolio-card">
-                    <div class="Portfolio-image">🌐</div>
+                    <div class="Portfolio-image">
+                        <img src="asset/nutricalc.png" alt="">
+                    </div>
                     <div class="Portfolio-content">
-                        <h3>E-Commerce Website</h3>
-                        <p>Platform e-commerce modern dengan fitur lengkap dan user-friendly interface.</p>
-                        <a href="#" class="Portfolio-link">View Portfolio →</a>
+                        <h3>NutriCalc Website</h3>
+                        <p>Website kalkulator nutrisi modern dengan fitur lengkap dan user-friendly interface.</p>
+                        <a href="https://nutricalc.vercel.app/" class="Portfolio-link">View Portfolio →</a>
                     </div>
                 </div>
+                <!-- Kartu portfolio: Dashboard Analytics -->
                 <div class="Portfolio-card">
-                    <div class="Portfolio-image">📊</div>
+                    <div class="Portfolio-image">
+                        <img src="asset/pagereplacments.png" alt="">
+                    </div>
                     <div class="Portfolio-content">
-                        <h3>Dashboard Analytics</h3>
-                        <p>Dashboard interaktif untuk visualisasi data real-time dengan chart dinamis.</p>
-                        <a href="#" class="Portfolio-link">View Portfolio →</a>
+                        <h3>Page Replacement Simulator</h3>
+                        <p>Simulator untuk memahami konsep page replacement dalam sistem operasi.</p>
+                        <a href="https://page-replacement-simulator.vercel.app/" class="Portfolio-link">View Portfolio →</a>
                     </div>
                 </div>
+                <!-- Kartu portfolio: Landing Page -->
                 <div class="Portfolio-card">
-                    <div class="Portfolio-image">🎯</div>
+                    <div class="Portfolio-image">
+                        <img src="asset/absensi.png" alt="">
+                    </div>
                     <div class="Portfolio-content">
-                        <h3>Landing Page</h3>
-                        <p>Landing page yang menarik dan conversion-focused untuk startup teknologi.</p>
-                        <a href="#" class="Portfolio-link">View Portfolio →</a>
+                        <h3>Presensi System</h3>
+                        <p>Sistem presensi digital berbasis QR Code yang efisien dan mudah digunakan untuk kebutuhan organisasi.</p>
+                        <a href="https://rpl-absensi-qr-code.vercel.app/" class="Portfolio-link">View Portfolio →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kontak Section -->
+    <!-- Bagian Kontak -->
     <section class="Kontak" id="Kontak">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="Kontak-content">
                 <p>Saya terbuka untuk kolaborasi dan proyek baru. Mari berdiskusi bagaimana kita bisa bekerja sama!</p>
+                <!-- Informasi kontak (email, WhatsApp, LinkedIn) -->
                 <div class="Kontak-info">
                     <div class="Kontak-item">
                         <a href="mailto:muhamadrizkyp95@gmail.com" class="email-icon">
@@ -153,16 +182,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Bagian Footer -->
     <footer>
         <p class="footer-text">&copy; 2026 Muhamad Rizky Pratama. All rights reserved.</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Tombol untuk scroll ke atas -->
     <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
         ↑
     </button>
 
+    <!-- Memuat file JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

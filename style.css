@@ -1,9 +1,38 @@
+/* Reset default margins */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Splash screen styling */
+    #splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white; /* Navy background */
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.8s ease;
+    }
+
+    /* Hidden state for splash */
+    #splash.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Mendefinisikan variabel warna tema */
 :root {
     /* Theme Variables */
     --cream: #EDEDCE;
@@ -23,6 +52,7 @@
     --shadow-hover: rgba(12, 44, 85, 0.2);
 }
 
+/* Gaya dasar untuk body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-primary);
@@ -31,17 +61,25 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navigation */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Gaya untuk navigasi */
 nav {
     background-color: var(--nav-bg);
     padding: 1.5rem;
-    position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 10px var(--shadow);
     transition: background-color 0.3s ease;
 }
 
+/* Kontainer dalam navigasi */
 nav .container {
     max-width: 1180px;
     margin: 0 auto;
@@ -52,6 +90,7 @@ nav .container {
     position: relative;
 }
 
+/* Gaya untuk logo */
 nav .logo {
     text-decoration: none;
     font-size: 1rem;
@@ -60,12 +99,14 @@ nav .logo {
     z-index: 10;
 }
 
+/* Menu navigasi */
 .nav-menu {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
+/* Tautan dalam menu navigasi */
 .nav-link {
     color: var(--nav-text);
     text-decoration: none;
@@ -74,6 +115,7 @@ nav .logo {
     position: relative;
 }
 
+/* Efek garis bawah pada tautan navigasi */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -85,6 +127,7 @@ nav .logo {
     transition: width 0.3s;
 }
 
+/* Efek hover pada tautan navigasi */
 .nav-link:hover::after {
     width: 100%;
 }
@@ -93,7 +136,7 @@ nav .logo {
     color: var(--light-blue);
 }
 
-/* Mobile Menu Toggle */
+/* Tombol menu mobile */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -105,6 +148,7 @@ nav .logo {
     z-index: 101;
 }
 
+/* Garis pada tombol menu mobile */
 .mobile-menu-toggle span {
     width: 25px;
     height: 2px;
@@ -113,6 +157,7 @@ nav .logo {
     border-radius: 3px;
 }
 
+/* Animasi tombol menu mobile saat aktif */
 .mobile-menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
 }
@@ -125,22 +170,28 @@ nav .logo {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Beranda Section */
+/* Bagian Beranda */
 .Beranda {
     background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
     color: var(--cream);
-    padding: 2.7rem 2rem; /* Keep padding */
+    padding: 2.8rem 2rem;
 }
 
+/* Judul pada bagian Beranda */
 .Beranda-content h1 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
     text-align: left;
 }
 
-.Beranda-content p {
+.mynameis {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    color: var(--light-blue);  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Paragraf pada bagian Beranda */
+.Beranda-content p {
+    font-size: 2rem;
     color: var(--light-blue);
     text-align: left;
 }
@@ -151,85 +202,103 @@ nav .logo {
     text-align: left;
 }
 
+/* Kontainer baru untuk Beranda */
 .Beranda-container-new {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 1400px; /* Match container width */
+    max-width: 1400px;
     margin: 0 auto;
-    gap: 2rem; /* Spacing between items */
-    min-height: calc(100vh - 10rem); /* Adjust based on padding and nav height */
+    gap: 2rem;
+    min-height: calc(100vh - 10rem);
 }
 
+/* Item dalam layout Beranda */
 .Beranda-layout-item {
     flex: 1;
-    min-width: 300px; /* Minimum width for each item before wrapping */
+    min-width: 300px;
     padding: 1rem;
 }
 
+/* Gambar pada bagian Beranda */
 .Beranda-layout-item.Beranda-image {
     text-align: center;
-
+    position: relative;
+    height: 100%;
 }
 
-.Beranda-layout-item.Beranda-extra-content {
-    text-align: right;
-}
-
+/* Gambar profil di Beranda */
 .Beranda-layout-item.Beranda-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Make the image round */
-    background-blend-mode: tomato;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    object-fit: cover; /* Ensure the image covers the area, cropping if necessary */
-    width: 300px; /* Fixed width for the circular image */
-    height: 300px; /* Fixed height for the circular image */
-    filter: grayscale(100%); /* Apply grayscale filter */
-    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effect */
-}
-.Beranda-layout-item.Beranda-image img:hover {
-    filter: grayscale(0%); /* Remove grayscale on hover */
-    transform: scale(1.05); /* Slightly enlarge image on hover */
-    border-radius: 50%; /* Make the image round */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    width: 25rem;
+    height: 20rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
+
+/* Efek transisi pada foto pertama */
+.Beranda-layout-item.Beranda-image .foto3 {
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 2;
+}
+
+/* Foto kedua */
+.Beranda-layout-item.Beranda-image .foto2 {
+    z-index: 1;
+}
+
+/* Efek hover pada gambar Beranda */
+.Beranda-layout-item.Beranda-image:hover .foto3 {
+    z-index: 1;
+}
+
+.Beranda-layout-item.Beranda-image:hover .foto2 {
+    z-index: 2;
+    filter: grayscale(0%);
+    transform: scale(1.02);
+    max-width: 100%;
+}
+
+/* Tombol CTA di Beranda */
 .Beranda-layout-item .cta-button {
-    text-align: left; /* Ensure the button is left-aligned */
-    display: inline-block; /* Make sure it doesn't take full width */
+    text-align: left;
+    display: inline-block;
 }
 
+/* Tombol Call-to-Action (CTA) */
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 1.4rem 3rem;
     background-color: var(--light-blue);
     color: var(--navy);
     text-decoration: none;
-    border-radius: 50px;
     font-weight: bold;
-    transition: all 0.3s;
+    bottom: 0;
 }
 
-.cta-button:hover {
-    background-color: var(--cream);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
 
-/* Container */
+/* Kontainer umum */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 0.5rem;
 }
 
-/* Section */
+/* Gaya umum untuk setiap bagian */
 section {
     padding: 5rem 2rem;
 }
 
+/* Judul pada setiap bagian */
 section h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -239,6 +308,7 @@ section h2 {
     padding-bottom: 1rem;
 }
 
+/* Garis bawah pada judul bagian */
 section h2::after {
     content: '';
     position: absolute;
@@ -251,28 +321,29 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Tentang_Saya Section */
+/* Bagian Tentang Saya */
 .Tentang_Saya {
     background-color: var(--bg-primary);
 }
 
+/* Konten pada bagian Tentang Saya */
 .Tentang_Saya-content {
-    max-width: 750px;
-    margin: 0 auto;
     text-align: center;
     font-size: 1.1rem;
     color: var(--text-secondary);
+
 }
 
 .Tentang_Saya-content p {
     margin-bottom: 1.5rem;
 }
 
-/* Skills Section */
+/* Bagian Skills */
 .Skills {
     background-color: var(--bg-secondary);
 }
 
+/* Grid untuk kartu-kartu skills */
 .Skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -281,6 +352,7 @@ section h2::after {
     margin: 0 auto;
 }
 
+/* Kartu individu pada bagian Skills */
 .Skills-card {
     background-color: var(--bg-card);
     padding: 2rem;
@@ -291,38 +363,44 @@ section h2::after {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
+/* Efek hover pada kartu Skills */
 .Skills-card:hover {
     transform: translateY(-10px);
     border-color: var(--light-blue);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
+/* Ikon pada kartu Skills */
 .Skills-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
+/* Judul pada kartu Skills */
 .Skills-card h3 {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
+/* Paragraf pada kartu Skills */
 .Skills-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
-/* Portfolios Section */
+/* Bagian Portofolio */
 .Portfolio {
     background-color: var(--bg-primary);
 }
 
+/* Grid untuk kartu-kartu portofolio */
 .Portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
 }
 
+/* Kartu individu pada bagian Portofolio */
 .Portfolio-card {
     background: var(--bg-card);
     border-radius: 15px;
@@ -331,11 +409,13 @@ section h2::after {
     transition: all 0.3s;
 }
 
+/* Efek hover pada kartu Portofolio */
 .Portfolio-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
+/* Gambar pada kartu Portofolio */
 .Portfolio-image {
     width: 100%;
     height: 200px;
@@ -347,20 +427,29 @@ section h2::after {
     color: white;
 }
 
+.Portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Konten pada kartu Portofolio */
 .Portfolio-content {
     padding: 1.5rem;
 }
 
+/* Judul pada kartu Portofolio */
 .Portfolio-content h3 {
     color: var(--text-primary);
     margin-bottom: 0.8rem;
 }
 
+/* Paragraf pada kartu Portofolio */
 .Portfolio-content p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
+/* Tautan pada kartu Portofolio */
 .Portfolio-link {
     color: var(--light-blue);
     text-decoration: none;
@@ -375,21 +464,24 @@ section h2::after {
     color: var(--teal);
 }
 
-/* Kontak Section */
+/* Bagian Kontak */
 .Kontak {
     background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
     color: var(--cream);
 }
 
+/* Judul pada bagian Kontak */
 .Kontak h2 {
     color: var(--cream);
     padding-bottom: 0.5rem;
 }
 
+/* Garis bawah pada judul Kontak */
 .Kontak h2::after {
     background: var(--light-blue);
 }
 
+/* Konten pada bagian Kontak */
 .Kontak-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -402,6 +494,7 @@ section h2::after {
     height: fit-content;
 }
 
+/* Informasi kontak */
 .Kontak-info {
     display: flex;
     flex-direction: row;
@@ -411,6 +504,7 @@ section h2::after {
     justify-content: center;
 }
 
+/* Ikon pada informasi kontak */
 a.whatsapp-icon, a.email-icon, a.linkedin-icon {
     display: flex;
     align-items: center;
@@ -418,6 +512,7 @@ a.whatsapp-icon, a.email-icon, a.linkedin-icon {
     text-decoration: none;
 }
 
+/* Item individu pada informasi kontak */
 .Kontak-item {
     background-color: rgba(237, 237, 206, 0.1);
     padding: 1rem;
@@ -429,13 +524,13 @@ a.whatsapp-icon, a.email-icon, a.linkedin-icon {
     text-align: center;
 }
 
+/* Efek hover pada item kontak */
 .Kontak-item:hover {
     background-color: rgba(237, 237, 206, 0.2);
     transform: translatey(10px);
 }
 
-
-/* Footer */
+/* Bagian Footer */
 footer {
     background-color: var(--nav-bg);
     color: var(--cream);
@@ -448,7 +543,7 @@ footer p {
     font-size: 0.8rem;
 }
 
-/* Scroll to Top Button */
+/* Tombol Scroll to Top */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -468,51 +563,56 @@ footer p {
     z-index: 99;
 }
 
+/* Tombol Scroll to Top saat terlihat */
 .scroll-to-top.visible {
     opacity: 1;
     visibility: visible;
 }
 
+/* Efek hover pada tombol Scroll to Top */
 .scroll-to-top:hover {
     background-color: var(--teal);
     color: var(--cream);
     transform: translateY(-5px);
 }
 
-/* Animations */
-@keyframes fadeInDown {
+/* Animasi fade in dari kiri */
+@keyframes fadeInleft {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateX(-300px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
-@keyframes fadeInUp {
+/* Animasi fade in dari kanan */
+@keyframes fadeInright {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateX(300px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
-.fade-in-down {
-    animation: fadeInDown 1s ease-out;
+/* Kelas untuk animasi fade in dari kiri */
+.fade-in-left {
+    animation: fadeInleft 1s ease-out;
 }
 
-.fade-in-up {
-    animation: fadeInUp 1s ease-out;
+/* Kelas untuk animasi fade in dari kanan */
+.fade-in-right {
+    animation: fadeInright 1s ease-out;
 }
 
-/* Responsive Design */
+/* Desain Responsif */
 @media (max-width: 768px) {
-    /* Mobile Menu */
+    /* Menu mobile */
     .mobile-menu-toggle {
         display: flex;
     }
@@ -544,35 +644,35 @@ footer p {
         display: none;
     }
 
-    /* Beranda Section */
+    /* Bagian Beranda */
     .Beranda {
         padding: 5rem 1.5rem;
     }
 
     .Beranda-container-new {
-        flex-direction: column; /* Stack items vertically */
-        text-align: center; /* Center content when stacked */
-        min-height: unset; /* Remove min-height */
+        flex-direction: column; /* Tumpuk item secara vertikal */
+        text-align: center; /* Pusatkan konten saat ditumpuk */
+        min-height: unset; /* Hapus tinggi minimum */
     }
 
     .Beranda-layout-item {
-        min-width: unset; /* Remove min-width to allow full width */
-        width: 100%; /* Take full width */
+        min-width: unset; /* Hapus lebar minimum untuk memungkinkan lebar penuh */
+        width: 100%; /* Ambil lebar penuh */
     }
 
     .Beranda-layout-item.Beranda-image {
-        order: -1; /* Move image to the top */
+        order: -1; /* Pindahkan gambar ke atas */
     }
 
     .Beranda-layout-item.Beranda-content,
     .Beranda-layout-item.Beranda-extra-content {
-        text-align: center; /* Center text content */
+        text-align: center; /* Pusatkan konten teks */
     }
 
     .Beranda-content h1,
     .Beranda-content p,
     .Beranda-layout-item .cta-button {
-        text-align: center; /* Ensure internal text and button are centered */
+        text-align: center; /* Pastikan teks internal dan tombol terpusat */
     }
 
     .Beranda-content h1 {
@@ -588,7 +688,7 @@ footer p {
         font-size: 0.95rem;
     }
 
-    /* Sections */
+    /* Bagian-bagian */
     section {
         padding: 3rem 1rem;
     }
@@ -598,19 +698,19 @@ footer p {
         margin-bottom: 2rem;
     }
 
-    /* Skills Grid */
+    /* Grid Skills */
     .Skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    /* Portfolios Grid */
+    /* Grid Portofolio */
     .Portfolio-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    /* Kontak Items */
+    /* Item Kontak */
     .Kontak-item {
         width: 100%;
         text-align: center;
@@ -620,7 +720,7 @@ footer p {
         transform: translateY(-5px);
     }
 
-    /* Scroll to Top Button */
+    /* Tombol Scroll to Top */
     .scroll-to-top {
         bottom: 20px;
         right: 20px;
